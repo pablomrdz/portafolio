@@ -1,3 +1,4 @@
+// Trigger deployment on master
 import { ArrowRight, Terminal } from "lucide-react";
 
 export default function Home() {
