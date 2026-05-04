@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo estilo Terminal -->
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  
+  <!-- Iniciales con color cian de marca -->
+  <text 
+    x="50%" 
+    y="55%" 
+    dominant-baseline="middle" 
+    text-anchor="middle" 
+    fill="#06B6D4" 
+    style="font-family: 'Geist Mono', monospace; font-weight: 900; font-size: 14px;"
+  >
+    JP_
+  </text>
+</svg>
