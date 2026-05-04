@@ -1,91 +1,137 @@
-// Trigger deployment on master
-import { ArrowRight, Terminal } from "lucide-react";
+"use client";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Terminal, Globe, Sun, Moon, CircleCheck, Mail, Computer, User } from "lucide-react";
+
+const content = {
+  en: {
+    heroTitle: "Building the future of Search.",
+    heroSub: "SEO Engineer specialized in technical architecture, AI automation, and high-performance products.",
+    badge: "Available for SEO Engineering roles",
+    viewProjects: "View Projects",
+    projectsTitle: "Engineering Showcase",
+    formSubmit: "Send Message",
+  },
+  es: {
+    heroTitle: "Construyendo el futuro de la búsqueda.",
+    heroSub: "Ingeniero SEO especializado en arquitectura técnica, automatización con IA y productos de alto rendimiento.",
+    badge: "Disponible para roles de SEO Engineering",
+    viewProjects: "Ver Proyectos",
+    projectsTitle: "Portafolio de Ingeniería",
+    formSubmit: "Enviar Mensaje",
+  }
+};
 
 export default function Home() {
+  const [lang, setLang] = useState<"en" | "es">("es");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const t = content[lang];
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const projects = [
+    { 
+      id: 1, 
+      title: "Cadizio: Digital Assets", 
+      img: "/projects/Cadizio.png", 
+      tag: "Next.js Assets", 
+      icon: <Computer size={12} />,
+      desc: "Plataforma de bloques de AutoCAD y dibujos 2D optimizada para SEO técnico."
+    },
+    { 
+      id: 2, 
+      title: "DiseñosGratis.com", 
+      img: "/projects/DisenosGratis_Nextjs.png", 
+      tag: "Migration Success", 
+      icon: <CircleCheck size={12} />,
+      desc: "Migración estratégica de WordPress a Next.js para maximizar visibilidad orgánica."
+    }
+  ];
+
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white selection:bg-cyan-500/30">
-      {/* Navigation */}
+    <main className="min-h-screen">
+      {/* NAVBAR */}
       <nav className="flex justify-between items-center p-8 max-w-7xl mx-auto">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-            <span className="text-black font-bold text-xs">JP</span>
+          <div className="w-8 h-8 bg-black dark:bg-white rounded-full flex items-center justify-center">
+            <User size={16} className="text-white dark:text-black" />
           </div>
-          <span className="font-medium tracking-tight">Juan Pablo</span>
+          <span className="font-bold tracking-tight">Juan Pablo</span>
         </div>
-        <div className="hidden md:flex gap-8 text-sm text-gray-400">
-          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-          <a href="#stack" className="hover:text-white transition-colors">Stack</a>
-          <a href="mailto:pablo.rdz94@gmail.com" className="hover:text-white transition-colors">Contact</a>
+        <div className="flex gap-4 items-center">
+          <button onClick={() => setLang(lang === "en" ? "es" : "en")} className="text-xs font-mono hover:text-cyan-500 transition-colors flex items-center gap-1">
+            <Globe size={14} /> {lang.toUpperCase()}
+          </button>
+          <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-all">
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* HERO SECTION */}
       <section className="max-w-7xl mx-auto px-8 pt-20 pb-32">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-gray-400 mb-8">
-            <Terminal size={14} className="text-cyan-500" />
-            <span>Available for SEO Engineering roles</span>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[10px] font-mono text-gray-500 mb-8 uppercase tracking-widest">
+            <Terminal size={12} className="text-cyan-500" /> {t.badge}
           </div>
-          
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
-            Building the future of Search.
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
+            {t.heroTitle}
           </h1>
-          
-          <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-            SEO Engineer specialized in technical architecture, AI-driven automation, 
-            and high-performance digital products. Elevating visibility through code.
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed">
+            {t.heroSub}
           </p>
+          
+          {/* BOTÓN CON TRANSICIÓN SUAVE */}
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <a href="#projects" className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-full font-bold shadow-2xl shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all">
+              {t.viewProjects} <ArrowRight size={20} />
+            </a>
+          </motion.div>
+        </motion.div>
+      </section>
 
-          <div className="flex gap-4">
-            <button className="bg-white text-black px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-gray-200 transition-all">
-              View Projects <ArrowRight size={18} />
-            </button>
-            <button className="border border-white/10 px-6 py-3 rounded-full font-medium hover:bg-white/5 transition-all">
-              Get in touch
-            </button>
-          </div>
+      {/* PROJECTS SECTION */}
+      <section id="projects" className="max-w-7xl mx-auto px-8 py-24 border-t border-black/5 dark:border-white/5">
+        <h2 className="text-xs font-mono text-cyan-500 mb-16 uppercase tracking-[0.3em] text-center">{t.projectsTitle}</h2>
+        <div className="grid md:grid-cols-2 gap-16">
+          {projects.map((project) => (
+            <motion.div 
+              key={project.id} 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="group cursor-none"
+            >
+              <div className="relative aspect-video rounded-[2rem] overflow-hidden bg-gray-100 dark:bg-[#111] border border-black/5 dark:border-white/5">
+                <img src={project.img} alt={project.title} className="object-cover w-full h-full opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-xl text-[10px] font-bold text-white px-3 py-1.5 rounded-full flex items-center gap-2 border border-white/10 uppercase tracking-tighter">
+                  {project.icon} {project.tag}
+                </div>
+              </div>
+              <div className="mt-8 px-4">
+                <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
+                <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm leading-relaxed">{project.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
-      {/* Projects Section */}
-<section id="projects" className="max-w-7xl mx-auto px-8 py-24">
-  <h2 className="text-sm font-mono text-cyan-500 mb-12 uppercase tracking-widest text-center">Selected Projects</h2>
-  
-  <div className="grid md:grid-cols-2 gap-8">
-    {/* Proyecto 1: Cadizio */}
-    <div className="group relative bg-[#111] border border-white/5 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500">
-      <div className="aspect-video bg-gradient-to-br from-gray-800 to-black p-12 flex items-center justify-center">
-        {/* Aquí irá un mockup de Cadizio */}
-        <div className="text-4xl font-bold opacity-20">CADIZIO</div>
-      </div>
-      <div className="p-8">
-        <h3 className="text-2xl font-bold mb-2">Cadizio</h3>
-        <p className="text-gray-400 mb-6">AI-Powered Platform built with Next.js and Supabase. Optimized for speed and scalability.</p>
-        <div className="flex gap-2">
-          <span className="text-[10px] px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-400">Next.js</span>
-          <span className="text-[10px] px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-400">Vibe Coding</span>
-          <span className="text-[10px] px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-400">SEO Technical</span>
-        </div>
-      </div>
-    </div>
 
-    {/* Proyecto 2: DiseñosGratis */}
-    <div className="group relative bg-[#111] border border-white/5 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500">
-      <div className="aspect-video bg-gradient-to-br from-cyan-900/20 to-black p-12 flex items-center justify-center">
-         {/* Aquí irá un mockup de DiseñosGratis */}
-         <div className="text-4xl font-bold opacity-20 italic">DG.com</div>
-      </div>
-      <div className="p-8">
-        <h3 className="text-2xl font-bold mb-2">DiseñosGratis.com</h3>
-        <p className="text-gray-400 mb-6">Full migration to Next.js resulting in +50% organic growth and 100/100 performance scores.</p>
-        <div className="flex gap-2">
-          <span className="text-[10px] px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-400">Technical SEO</span>
-          <span className="text-[10px] px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-400">n8n Automation</span>
-          <span className="text-[10px] px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-400">Core Web Vitals</span>
+      {/* FOOTER */}
+      <footer className="max-w-7xl mx-auto px-8 py-20 border-t border-black/5 dark:border-white/5 text-center">
+        <div className="flex justify-center gap-8 mb-10 opacity-50 hover:opacity-100 transition-opacity">
+          <a href="https://github.com/pablomrdz" target="_blank" className="hover:text-cyan-500 transition-colors"><Computer size={22} /></a>
+          <a href="https://linkedin.com/in/juanpamrod" target="_blank" className="hover:text-cyan-500 transition-colors"><User size={22} /></a>
+          <a href="mailto:pablo.rdz94@gmail.com" className="hover:text-cyan-500 transition-colors"><Mail size={22} /></a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500">
+          © 2026 Juan Pablo Márquez — San Nicolás de los Garza, NL
+        </p>
+      </footer>
     </main>
   );
 }
