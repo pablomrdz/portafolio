@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Juan Pablo Márquez | SEO Engineer",
   description: "Especialista en arquitectura técnica de búsqueda y automatización con IA.",
   alternates: { canonical: "https://juanpablomarquez.vercel.app" },
+  verification: { google: <meta name="google-site-verification" content="6ZqOZgswu_dGAP82WD_HmBgq8NQ5Fa4lu5JI56jr3Kw" /> },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -22,4 +23,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   );
-}
+} 
