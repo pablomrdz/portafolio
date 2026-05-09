@@ -304,7 +304,7 @@ export default function Home() {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-cyan-500 origin-left z-50" style={{ scaleX: scrollYProgress }} />
 
       {/* NAVBAR */}
-      <nav className="flex justify-between items-center p-8 max-w-7xl mx-auto">
+      <nav className="flex justify-between items-center p-6 md:p-8 max-w-7xl mx-auto">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 flex items-center justify-center">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -322,9 +322,8 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-8 pt-20 pb-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[10px] font-mono text-gray-500 mb-8 uppercase tracking-widest">
+<section className="max-w-7xl mx-auto px-8 pt-10 md:pt-20 pb-8 md:pb-16 border-b border-black/5 dark:border-white/5">        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="inline-flex items-center gap-2 px-3 py-2  rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-[10px] font-mono text-gray-500 mb-8 uppercase tracking-widest">
             <Terminal size={12} className="text-cyan-500" /> {t.badge}
           </div>
           <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">{t.heroTitle}</h1>
@@ -338,8 +337,7 @@ export default function Home() {
       </section>
 
       {/* CERTIFICADOS */}
-      <section className="py-24 relative group/carousel overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8">
+        <section className="py-12 md:py-24 relative group/carousel overflow-hidden border-b border-black/5 dark:border-white/5">        <div className="max-w-7xl mx-auto px-8">
           <p className="text-[10px] font-mono uppercase tracking-[0.4em] mb-12 text-center opacity-50">{t.certTitle}</p>
         </div>
         <div className="relative w-full max-w-[1400px] mx-auto">
@@ -364,8 +362,7 @@ export default function Home() {
       </section>
 
       {/* STACK (MULTILENGUAJE) */}
-      <section className="max-w-7xl mx-auto px-8 py-24 border-t border-black/5 dark:border-white/5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section className="max-w-7xl mx-auto px-8 py-12 md:py-24 border-b border-black/5 dark:border-white/5">        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.stack.map((group, i) => {
             const isActive = activeStack === group.title;
             return (
@@ -400,27 +397,26 @@ export default function Home() {
       </section>
 
       {/* PROYECTOS (MULTILENGUAJE CON UX DE SCROLL) */}
-      <section id="projects" className="max-w-7xl mx-auto px-8 py-24 border-t border-black/5 dark:border-white/5">
-        <h2 className="text-xs font-mono text-cyan-500 mb-16 uppercase tracking-[0.3em] text-center">{t.projectsTitle}</h2>
+      <section id="projects" className="max-w-7xl mx-auto px-8 py-12 md:py-24">        <h2 className="text-xs font-mono text-cyan-500 mb-16 uppercase tracking-[0.3em] text-center">{t.projectsTitle}</h2>
         
         <div className="grid md:grid-cols-2 gap-16">
           {t.projects.map((project) => (
             <motion.div key={project.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="group/card">
               
-              {/* WRAPPER PRINCIPAL: Oculta lo que sale de los bordes y mantiene posiciones absolutas */}
-              <div className="relative h-64 md:h-80 rounded-[2rem] overflow-hidden border border-black/5 dark:border-white/5 shadow-2xl bg-gray-100 dark:bg-[#111]">
+              {/* WRAPPER PRINCIPAL: El contenedor exterior ahora se ajusta automáticamente al contenido */}
+              <div className="relative rounded-[2rem] overflow-hidden border border-black/5 dark:border-white/5 shadow-2xl bg-gray-100 dark:bg-[#111]">
                 
-                {/* CONTENEDOR DE SCROLL: Solo este div hace scroll */}
-                <div className="w-full h-full overflow-y-auto scrollbar-hide">
-                  <img src={project.img} alt={project.alt} className="w-full h-auto object-top opacity-90 group-hover/card:opacity-100 transition-opacity duration-500" />                </div>
-                
+                {/* CONTENEDOR DE SCROLL: Altura flexible hasta 50vh en móvil, altura fija en desktop */}
+                <div className="w-full h-auto max-h-[50vh] md:max-h-none md:h-80 overflow-y-auto scrollbar-hide">
+                  <img src={project.img} alt={project.alt} className="w-full h-auto object-top opacity-90 group-hover/card:opacity-100 transition-opacity duration-500" />
+                </div>                
                 {/* TAG SUPERIOR (Se mantiene fijo) */}
                 <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-xl text-[10px] font-bold text-white px-3 py-1.5 rounded-full border border-white/10 uppercase tracking-tighter z-10 pointer-events-none">
                   {project.tag}
                 </div>
 
                 {/* GRADIENTE INFERIOR PASIVO (Indicador sutil constante) */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-200 dark:from-[#0a0a0a] to-transparent pointer-events-none z-10 opacity-80" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-t from-gray-200 dark:from-[#0a0a0a] to-transparent pointer-events-none z-10 opacity-80" />
 
                 {/* PÍLDORA DE SCROLL ACTIVA (Aparece en hover) */}
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md text-white text-[10px] font-bold px-4 py-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 pointer-events-none flex items-center gap-2 translate-y-2 group-hover/card:translate-y-0 z-20 border border-white/10 shadow-xl">
