@@ -23,7 +23,7 @@ const content = {
         id: 1, 
         title: "Cadizio: AutoCAD Assets Platform", 
         img: "/projects/Cadizio.png", 
-        tag: "Next.js SEO", 
+        tag: "Next.js", 
         desc: "Digital asset platform optimized for technical SEO, fast content delivery, and server-side rendering.",
         alt: "Cadizio homepage - A high-performance AutoCAD block platform built with Next.js and optimized for Technical SEO" // <-- NUEVO ALT TEXT
       },
@@ -31,9 +31,98 @@ const content = {
         id: 2, 
         title: "DiseñosGratis: Technical Migration", 
         img: "/projects/DisenosGratis_Nextjs.png", 
-        tag: "Migration Success", 
+        tag: "Next.js", 
         desc: "Strategic migration from WordPress to Next.js. Achieved 100/100 Core Web Vitals and maximized organic visibility.",
         alt: "DiseñosGratis.com performance metrics and UI after technical migration from WordPress to Next.js" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 3, 
+        title: "Hexds - e-commerce", 
+        img: "/projects/Hexds_Shopify.png", 
+        tag: "Shopify", 
+        desc: "Optimized online store made with Shopify. Full brand exposure and maximized organic visibility.",
+        alt: "Hexds Beauty shopify store" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 4, 
+        title: "Conexion Yakult - Landing Page", 
+        img: "/projects/ConexionYakult_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Optimized landing page made with Elementor. Custom forms to make an email marketing strategy.",
+        alt: "Landing page for events and email marketing strategies " // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 5, 
+        title: "Disenosgratis - Design Asset Platform", 
+        img: "/projects/Disenosgratis_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Website for downloading resources created with native WordPress blocks and custom code. SEO strategy for monetization with AdSense.",
+        alt: "Design asset library for entrepeneurs" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 6, 
+        title: "OwnCosmetics - e-commerce", 
+        img: "/projects/OwnCosmetics_Shopify.png", 
+        tag: "Shopify", 
+        desc: "Optimized online store made with Shopify. Full brand exposure and maximized organic visibility.",
+        alt: "Own Cosmetics Shopify Store" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 7, 
+        title: "Au Ciel Spa - e-commerce", 
+        img: "/projects/AuCielSpa_Woocommerce.png", 
+        tag: "Woocommerce", 
+        desc: "Website for downloading resources created with native WordPress blocks and custom code. SEO strategy for monetization with AdSense.",
+        alt: "Au Ciel Spa Woocommerce store" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 8, 
+        title: "Smith & Locke - website", 
+        img: "/projects/Smith_Locke_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "multilingual website for capital brokers made with WordPress, Elementor and custom code.",
+        alt: "Smith & Locke website design" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 9, 
+        title: "Medical Images - website", 
+        img: "/projects/Imagenes_Medicas-Wordpress.png", 
+        tag: "Woocommerce", 
+        desc: "Website for medical marketing made with WordPress and Woocommerce.",
+        alt: "Medical marketing website" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 10, 
+        title: "Evooko - website", 
+        img: "/projects/Evooko_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Website for B2B made with WordPress.",
+        alt: "B2B website" // <-- NUEVO ALT TEXT
+      }
+      ,
+      { 
+        id: 11, 
+        title: "La Race Shop - prototype", 
+        img: "/projects/LaRaceShop_FIgma.png", 
+        tag: "Figma", 
+        desc: "Prototype for automotive brands made with Figma.",
+        alt: "Automotive Figma prototye" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 12, 
+        title: "Certerus - prototype", 
+        img: "/projects/Certerus_Figma.png", 
+        tag: "Figma", 
+        desc: "Prototype for marketing agency update made with Figma.",
+        alt: "B2B website" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 13, 
+        title: "IPC Obras - website", 
+        img: "/projects/IPC_Obras_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Construction services website made with WordPress ",
+        alt: "Construction services website" // <-- NUEVO ALT TEXT
       }
     ],
     stackDetail: "Implemented in production environments with a strict focus on server-side scalability and technical SEO compliance."
@@ -57,7 +146,7 @@ const content = {
         id: 1, 
         title: "Cadizio: Plataforma de Assets AutoCAD", 
         img: "/projects/Cadizio.png", 
-        tag: "Next.js SEO", 
+        tag: "Next.js", 
         desc: "Plataforma optimizada para SEO técnico, entrega rápida de contenido y renderizado del lado del servidor.",
         alt: "Interfaz de Cadizio, plataforma de bloques de AutoCAD desarrollada con arquitectura Next.js por Juan Pablo Márquez" // <-- NUEVO ALT TEXT
       },
@@ -65,9 +154,98 @@ const content = {
         id: 2, 
         title: "DiseñosGratis: Migración Técnica", 
         img: "/projects/DisenosGratis_Nextjs.png", 
-        tag: "Migración Exitosa", 
+        tag: "Next.js", 
         desc: "Migración estratégica de WordPress a Next.js. Alcanzando 100/100 en Core Web Vitals para maximizar visibilidad orgánica.",
         alt: "Captura de pantalla de DiseñosGratis.com tras su migración técnica de WordPress a Next.js para mejorar Core Web Vitals" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 3, 
+        title: "Hexds - e-commerce", 
+        img: "/projects/Hexds_Shopify.png", 
+        tag: "Shopify", 
+        desc: "Optimized online store made with Shopify. Full brand exposure and maximized organic visibility.",
+        alt: "Hexds Beauty shopify store" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 4, 
+        title: "Conexion Yakult - Landing Page", 
+        img: "/projects/ConexionYakult_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Optimized landing page made with Elementor. Custom forms to make an email marketing strategy.",
+        alt: "Landing page for events and email marketing strategies " // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 5, 
+        title: "Disenosgratis - Design Asset Platform", 
+        img: "/projects/Disenosgratis_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Website for downloading resources created with native WordPress blocks and custom code. SEO strategy for monetization with AdSense.",
+        alt: "Design asset library for entrepeneurs" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 6, 
+        title: "OwnCosmetics - e-commerce", 
+        img: "/projects/OwnCosmetics_Shopify.png", 
+        tag: "Shopify", 
+        desc: "Optimized online store made with Shopify. Full brand exposure and maximized organic visibility.",
+        alt: "Own Cosmetics Shopify Store" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 7, 
+        title: "Au Ciel Spa - e-commerce", 
+        img: "/projects/AuCielSpa_Woocommerce.png", 
+        tag: "Woocommerce", 
+        desc: "Website for downloading resources created with native WordPress blocks and custom code. SEO strategy for monetization with AdSense.",
+        alt: "Au Ciel Spa Woocommerce store" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 8, 
+        title: "Smith & Locke - website", 
+        img: "/projects/Smith_Locke_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "multilingual website for capital brokers made with WordPress, Elementor and custom code.",
+        alt: "Smith & Locke website design" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 9, 
+        title: "Medical Images - website", 
+        img: "/projects/Imagenes_Medicas-Wordpress.png", 
+        tag: "Woocommerce", 
+        desc: "Website for medical marketing made with WordPress and Woocommerce.",
+        alt: "Medical marketing website" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 10, 
+        title: "Evooko - website", 
+        img: "/projects/Evooko_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Website for B2B made with WordPress.",
+        alt: "B2B website" // <-- NUEVO ALT TEXT
+      }
+      ,
+      { 
+        id: 11, 
+        title: "La Race Shop - prototype", 
+        img: "/projects/LaRaceShop_FIgma.png", 
+        tag: "Figma", 
+        desc: "Prototype for automotive brands made with Figma.",
+        alt: "Automotive Figma prototye" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 12, 
+        title: "Certerus - prototype", 
+        img: "/projects/Certerus_Figma.png", 
+        tag: "Figma", 
+        desc: "Prototype for marketing agency update made with Figma.",
+        alt: "B2B website" // <-- NUEVO ALT TEXT
+      },
+      { 
+        id: 13, 
+        title: "IPC Obras - website", 
+        img: "/projects/IPC_Obras_Wordpress.png", 
+        tag: "Wordpress", 
+        desc: "Construction services website made with WordPress ",
+        alt: "Construction services website" // <-- NUEVO ALT TEXT
       }
     ],
     stackDetail: "Implementado en entornos de producción con un enfoque estricto en la escalabilidad del servidor y el cumplimiento de SEO técnico."
